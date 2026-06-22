@@ -11,24 +11,17 @@ const ScrollWrapper = ({ children }) => {
       setIsMobile(window.innerWidth < 768);
     };
     handleResize();
-
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
     if (containerRef.current) {
       const scrollElements = containerRef.current.querySelectorAll("[data-scroll-speed]");
-
-      scrollElements.forEach(el => {
+      scrollElements.forEach((el) => {
         const originalSpeed = parseFloat(el.getAttribute("data-scroll-speed"));
-
         let newSpeed = originalSpeed;
-        if (isMobile) {
-          newSpeed = originalSpeed * 0.5;
-        }
-
+        if (isMobile) newSpeed = originalSpeed * 0.5;
         el.setAttribute("data-scroll-speed", newSpeed.toString());
       });
 
@@ -39,11 +32,11 @@ const ScrollWrapper = ({ children }) => {
         multiplier: isMobile ? 0.5 : 1,
       });
 
-      return () => { 
+      return () => {
         if (scroll) scroll.destroy();
       };
     }
-  }, [isMobile]); 
+  }, [isMobile]);
 
   return (
     <div data-scroll-container ref={containerRef} className="p-0 relative">

@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import commonData from "../../data/stringData";
 import { BodyNormal, BodySmallNormal } from "./CustomText";
 
+// eslint-disable-next-line no-empty-pattern
 export function DefaultForm({}) {
   const [message, setMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
