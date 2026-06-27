@@ -28,14 +28,11 @@ function useScrollReveal(options = {}) {
   return { ref, isVisible };
 }
 
-/**
- * Komponen wrapper untuk scroll reveal
- */
 export function RevealOnScroll({
   children,
   className = "",
   delay = 0,
-  direction = "up", // "up" | "left" | "right" | "fade"
+  direction = "up",
   duration = 600,
 }) {
   const { ref, isVisible } = useScrollReveal();

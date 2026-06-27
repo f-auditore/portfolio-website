@@ -12,20 +12,15 @@ export default function CursorFollower() {
   const rafId = useRef(null);
 
   useEffect(() => {
-    // 1. Fungsi pengecekan layar & device
     const checkDevice = () => {
-      // Cek lebar layar DAN pastikan bukan device touchscreen murni
       const hasTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
       setIsDesktop(window.innerWidth >= 768 && !hasTouch);
     };
 
-    // Jalankan saat komponen pertama kali dipasang
     checkDevice();
 
-    // Jalankan ulang jika user me-resize browser (buat testing di inspect element)
     window.addEventListener("resize", checkDevice);
 
-    // 2. Jika bukan desktop, jangan pasang event listener kursor sama sekali
     if (window.innerWidth < 768) {
       return () => window.removeEventListener("resize", checkDevice);
     }
@@ -50,7 +45,6 @@ export default function CursorFollower() {
     document.addEventListener("mouseup", onMouseUp);
     document.addEventListener("mouseover", onMouseOver);
 
-    // Lerp animation loop
     const lerp = (a, b, t) => a + (b - a) * t;
     const animate = () => {
       if (dotRef.current) {

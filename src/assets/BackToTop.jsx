@@ -12,7 +12,6 @@ export default function BackToTop() {
 
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    // Also handle locomotive-scroll container if present
     const container = document.querySelector("[data-scroll-container]");
     if (container?.__locomotive) {
       container.__locomotive.scrollTo(0);

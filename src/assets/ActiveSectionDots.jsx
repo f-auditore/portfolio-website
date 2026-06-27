@@ -30,7 +30,6 @@ export default function ActiveSectionDots() {
       if (el) observer.observe(el);
     });
 
-    // Show after scroll
     const onScroll = () => setVisible(window.scrollY > 200);
     window.addEventListener("scroll", onScroll, { passive: true });
 
@@ -71,7 +70,7 @@ export default function ActiveSectionDots() {
             textDecoration: "none",
           }}
         >
-          {/* Label tooltip on hover */}
+
           <span
             className="section-dot-label"
             style={{

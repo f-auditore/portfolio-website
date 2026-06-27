@@ -16,19 +16,14 @@ import ActiveSectionDots from "./assets/ActiveSectionDots";
 function App() {
   return (
     <>
-      {/* Page loader - shows on first visit */}
       <PageLoader />
 
-      {/* Scroll progress indicator at top */}
       <ScrollProgressBar />
 
-      {/* Custom cursor follower (desktop only) */}
       <CursorFollower />
 
-      {/* Section navigation dots (right side) */}
       <ActiveSectionDots />
 
-      {/* Back to top button */}
       <BackToTop />
 
       <Navbar />
